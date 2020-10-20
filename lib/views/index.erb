@@ -8,8 +8,17 @@
     <h1>Mon super site de gossip, depuis le dossier views !</h1>
 
       <p>Bonjour à toi, visiteur en quête de potins !</p>
-      <p>La liste des potins est actuellement en cours de réalisation</p>
-      <p>Mais tu peux en créer un toi-même en cliquant sur ce lien <a href="/gossips/new/">Crée un nouveau potin ici</a>
+      <p>Voici la liste actualisée des potins :</p>
+        <% gossips.each do |gossip| %>
+        <p>
+          <%= gossip.author %><br/>
+          <%= gossip.content %>
+        </p>
+        <% end %>
+
+
+      <p>Tu peux également contrinuer à en créer un toi-même. Pour ce faire, cliques sur ce lien <a href="/gossips/new/">Crée un nouveau potin ici</a></p>
+
 
   </body>
 </html>

@@ -1,24 +1,34 @@
 # gossip.rb de gossip project sinatra
 
 
-require 'pry'
+#require 'pry'
 require 'csv'
 
 
 class Gossip
+  attr_accessor :author, :content
 
 	def initialize(author, content)
-		@content = content
-		@author = author
+		@author = author.to_s 
+    @content = content.to_s 
 	end
 
 	def save
 		CSV.open("/Users/PatriceH/Desktop/THP2/thpWk5Day1/the_gossip_project_sinatra/db/gossip.csv", "ab") do |csv|
-			csv << ["Mon super auteur", "Ma super description"]
+			csv << [@author, @content]
 		end
 	end
+
+  def self.all 
+    @@all_gossips = []
+    CSV.read("./db/gossip.csv").each do |csv_line|
+      @@all_gossips << Gossip.new(csv_line[0], csv_line[1])
+    end
+    return @@all_gossips
+  end
+
 end
 
-binding.pry
+#binding.pry
 
 
