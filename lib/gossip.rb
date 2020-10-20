@@ -27,6 +27,15 @@ class Gossip
     return @@all_gossips
   end
 
+  def self.find(given_id)
+#    puts "#{@@all_gossips['given_id']}"
+#    @@all_gossips['given_id']
+#    gossip_to_be_displayed = []
+#    gossip_to_be_displayed = @@all_gossips['given_id']
+#    return gossip_to_be_displayed
+  end
+
+
 end
 
 #binding.pry

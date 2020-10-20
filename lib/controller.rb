@@ -11,6 +11,13 @@ class ApplicationController < Sinatra::Base
 	erb :index, locals: {gossips: Gossip.all}
   end
 
+  get '/gossips/:id' do
+    gossip_to_be_displayed = []
+    puts "Voici le numéro du potin que tu veux : #{params['id']}"
+#    gossip_to_be_displayed = Gossip.find('id')
+#    puts gossip_to_be_displayed
+  end
+
 	get '/gossips/new/' do 
 	erb :new_gossip
   end
